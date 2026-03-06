@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Everwell Insurance Agency LLC - Stay Connected</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --deep-green: #1a3a2f;
+            --warm-green: #2d5a47;
+            --gold: #c9a962;
+            --cream: #faf8f5;
+            --text: #2c2c2c;
+            --text-light: #5a5a5a;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background-image: 
+                radial-gradient(ellipse at 20% 0%, rgba(45, 90, 71, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 100%, rgba(201, 169, 98, 0.1) 0%, transparent 50%);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 48px 40px;
+            box-shadow: 
+                0 4px 24px rgba(26, 58, 47, 0.06),
+                0 1px 3px rgba(26, 58, 47, 0.04);
+        }
+
+        .logo-area {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .logo-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--deep-green), var(--warm-green));
+            border-radius: 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .logo-icon svg {
+            width: 28px;
+            height: 28px;
+            color: var(--gold);
+        }
+
+        h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.75rem;
+            color: var(--deep-green);
+            font-weight: 400;
+            margin-bottom: 4px;
+        }
+
+        .tagline {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(26, 58, 47, 0.12), transparent);
+            margin: 28px 0;
+        }
+
+        .intro {
+            text-align: center;
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 0.95rem;
+            margin-bottom: 28px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"] {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1.5px solid #e5e5e5;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            background: var(--cream);
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--warm-green);
+            box-shadow: 0 0 0 3px rgba(45, 90, 71, 0.1);
+        }
+
+        .consent-box {
+            background: #f8f9f8;
+            border-radius: 10px;
+            padding: 16px;
+            margin: 24px 0;
+        }
+
+        .checkbox-wrapper {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+            accent-color: var(--warm-green);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .consent-text {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 16px 24px;
+            background: linear-gradient(135deg, var(--deep-green), var(--warm-green));
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(26, 58, 47, 0.25);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .footer p {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .footer a {
+            color: var(--warm-green);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .company-name {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .success-message svg {
+            width: 48px;
+            height: 48px;
+            color: var(--warm-green);
+            margin-bottom: 16px;
+        }
+
+        .success-message h2 {
+            font-family: 'DM Serif Display', serif;
+            color: var(--deep-green);
+            margin-bottom: 8px;
+        }
+
+        .form-content.hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="logo-area">
+                <div class="logo-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                    </svg>
+                </div>
+                <h1>Everwell Insurance Agency</h1>
+                <p class="tagline">Protecting What Matters Most</p>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="form-content">
+                <p class="intro">
+                    Stay informed about your coverage options, policy updates, and exclusive offers. Sign up to receive text message updates from our team.
+                </p>
+
+                <form id="optinForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required placeholder="John Smith">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="(555) 123-4567">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="john@example.com">
+                    </div>
+
+                    <div class="consent-box">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="consent" name="consent">
+                            <label for="consent" class="consent-text">
+                                I agree to receive SMS text messages from Everwell Insurance Agency LLC regarding insurance products, services, appointment reminders, and promotional offers. Message frequency varies. Message and data rates may apply. Reply STOP to unsubscribe at any time. Reply HELP for assistance. Consent is not a condition of purchase.
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn">Subscribe to Updates</button>
+                </form>
+            </div>
+
+            <div class="success-message" id="successMessage">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <h2>You're Subscribed!</h2>
+                <p>Thank you for signing up. We'll be in touch soon.</p>
+            </div>
+
+            <div class="footer">
+                <p>
+                    <span class="company-name">Everwell Insurance Agency LLC</span><br>
+                    <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a><br><br>
+                    To opt out of messages at any time, reply STOP.<br>
+                    For help, reply HELP or contact us directly.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('optinForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.querySelector('.form-content').classList.add('hidden');
+            document.getElementById('successMessage').classList.add('show');
+        });
+
+        // Format phone number as user types
+        document.getElementById('phone').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 6) {
+                value = '(' + value.slice(0,3) + ') ' + value.slice(3,6) + '-' + value.slice(6,10);
+            } else if (value.length >= 3) {
+                value = '(' + value.slice(0,3) + ') ' + value.slice(3);
+            }
+            e.target.value = value;
+        });
+    </script>
+</body>
+</html>
